@@ -1,6 +1,6 @@
 import java.awt.Dimension;
 import java.awt.Graphics;
-
+import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -15,11 +15,29 @@ public class Main extends JFrame {
         setPreferredSize(new Dimension(720, 720));
       }
 
-      @Override
-      public void paint(Graphics g) {
-	g.setColor(java.awt.Color.BLACK);
-	g.drawRect(10, 10, 700, 700);
-      }
+ @Override
+        public void paint(Graphics g) {
+            super.paint(g); //clear
+
+            g.setColor(Color.BLACK);
+
+            int startX = 10;
+            int startY = 10;
+            int cellSize = 35;
+            int cells = 20;
+
+            //vertical
+            for (int i = 0; i <= cells; i++) {
+                int x = startX + i * cellSize;
+                g.drawLine(x, startY, x, startY + cells * cellSize);
+            }
+
+            //horizontal
+            for (int i = 0; i <= cells; i++) {
+                int y = startY + i * cellSize;
+                g.drawLine(startX, y, startX + cells * cellSize, y);
+            }
+        }
     }
 
     private Main() {
