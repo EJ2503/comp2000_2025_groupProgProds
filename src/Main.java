@@ -16,8 +16,6 @@ public class Main extends JFrame {
       Grid grid = new Grid();
       public Canvas() {
         setPreferredSize(new Dimension(720, 720));
-        grid = new Grid(720, 720, 20, 20, 30, 10, 10);
-        grid.initialiseCells();
       }
 
       @Override
