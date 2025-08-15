@@ -13,18 +13,17 @@ public class Main extends JFrame {
     }
 
     class Canvas extends JPanel {
-      private Grid grid;
+      Grid grid = new Grid();
       public Canvas() {
         setPreferredSize(new Dimension(720, 720));
         grid = new Grid(720, 720, 20, 20, 30, 10, 10);
         grid.initialiseCells();
       }
 
- @Override
-        public void paint(Graphics g) {
-            super.paint(g);
-            grid.paint(g);
-        }
+      @Override
+      public void paint(Graphics g) {
+        grid.paint(g, getMousePosition());
+      }
     }
 
     private Main() {
